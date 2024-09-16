@@ -1,0 +1,66 @@
+<% layout("/layouts/boilerpalte.ejs") %>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br><br>
+            <h1>Create Your Own Listing</h1>
+            <form action="/listings" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="listing[title]" placeholder="Enter Title" class="form-control" required>
+                    <div class="valid-feedback">Title looks Good!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="Description" class="form-label">Description</label>
+                    <textarea name="listing[description]" placeholder="Enter Description" class="form-control"
+                        required></textarea>
+                    <div class="invalid-feedback">Enter Description</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Image</label>
+                    <input type="file" name="listing[image][url]" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="category">Choose a Category:</label>
+                    <br>
+                    
+                    <select name="listing[category]" id="category" class="form-control" required>
+                        <option value="Rooms">Rooms</option>
+                        <option value="City">City</option>
+                        <option value="Mountains">Mountains</option>
+                        <option value="Castles">Castles</option>
+                        <option value="Swimming Pool">Swimming Pool</option>
+                        <option value="Arctic">Arctic</option>
+                        <option value="Camps">Camps</option>      
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" name="listing[location]" placeholder="Enter Location" class="form-control"
+                        required>
+                    <div class="invalid-feedback">Enter Valid Location</div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="Price" class="form-label">Price</label>
+                        <input type="text" name="listing[price]" placeholder="Enter Price" class="form-control"
+                            required>
+                        <div class="invalid-feedback">Enter Vaild Price</div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" name="listing[country]" placeholder="Enter Country" class="form-control"
+                            required>
+                        <div class="invalid-feedback">Enter vaild Country Name</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-dark add-btn">Add</button>
+                <br><br>
+            </form>
+        </div>
+    </div>
