@@ -9,6 +9,11 @@ module.exports.index = async (req, res) => {
     res.render("listings/index.ejs", { allListings });
 }
 
+module.exports.indexTrending = async (req, res) => {
+    const allListings = await Listing.find({}).sort({views: -1}).limit(10);
+    res.render("listings/index.ejs", { allListings });
+}
+
 module.exports.indexCastles = async (req, res) => {
     const allListings = await Listing.find({category : "Castles"});
     res.render("listings/index.ejs", { allListings });
@@ -77,7 +82,6 @@ module.exports.new_save = (async (req, res) => {
     req.flash("success", "Listing Created Successfully!!");
     res.redirect("/listings");
 });
-
 module.exports.show = (async (req, res) => {
     let { id } = req.params;
     const listing = await Listing.findById(id).populate({path :"reviews", populate :{path : "author"} }).populate("owner");
@@ -86,6 +90,14 @@ module.exports.show = (async (req, res) => {
         res.redirect("/listings");
     }
     else {
+     
+    let response = await geocodingClient.forwardGeocode({
+      query: listing.location,
+      limit: 1
+    })
+    .send();
+    
+    listing.geometry = response.body.features[0].geometry;
         res.render("listings/show.ejs", { listing });
     }
 });

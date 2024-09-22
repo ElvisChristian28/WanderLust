@@ -13,6 +13,7 @@ router.route("/")
     .post(isLoggedin, upload.single('listing[image][url]'),validateListing, wrapAsync(listingControllers.new_save));
 
 router.get("/new", isLoggedin, listingControllers.newPage);
+router.get("/trending",listingControllers.indexTrending);
 router.get("/castles",listingControllers.indexCastles);
 router.get("/rooms",listingControllers.indexRooms);
 router.get("/iconic-cities",listingControllers.indexCity);
