@@ -12,16 +12,17 @@ router.route("/")
     .get(wrapAsync(listingControllers.indexCastles))
     .post(isLoggedin, upload.single('listing[image][url]'),validateListing, wrapAsync(listingControllers.new_save));
 
-router.get("/new", isLoggedin, listingControllers.newPage);
-router.get("/trending",listingControllers.indexTrending);
-router.get("/castles",listingControllers.indexCastles);
-router.get("/rooms",listingControllers.indexRooms);
-router.get("/iconic-cities",listingControllers.indexCity);
-router.get("/mountains",listingControllers.indexMountains);
-router.get("/arctic",listingControllers.indexArctic);
-router.get("/amazing-pool",listingControllers.indexPool);
-router.get("/farms",listingControllers.indexFarms);
-router.get("/camps",listingControllers.indexCamps);
+router.get("/new", isLoggedin, wrapAsync(listingControllers.newPage));
+router.get("/trending",wrapAsync(listingControllers.indexTrending));
+router.get("/castles",wrapAsync(listingControllers.indexCastles));
+router.get("/rooms",wrapAsync(listingControllers.indexRooms));
+router.get("/iconic-cities",wrapAsync(listingControllers.indexCity));
+router.get("/mountains",wrapAsync(listingControllers.indexMountains));
+router.get("/arctic",wrapAsync(listingControllers.indexArctic));
+router.get("/amazing-pool",wrapAsync(listingControllers.indexPool));
+router.get("/farms",wrapAsync(listingControllers.indexFarms));
+router.get("/camps",wrapAsync(listingControllers.indexCamps));
+router.get("/search",wrapAsync(listingControllers.search));
 
 router.route("/:id")
     .get(wrapAsync(listingControllers.show))

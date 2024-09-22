@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
 const initData = require("./data.js");
 const Listing = require("../models/listing.js");
-const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
-const mapToken = "pk.eyJ1IjoiaXRzc2FyYW5oZXJlIiwiYSI6ImNsd3B3aDFybjFodTMyaXJ6cGQxeWdwYzcifQ.4HPJRlRvgTdHaXXTDQEWCg";
-const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
 main()
     .then(() => {

@@ -158,4 +158,10 @@ body {
   .search-inp{
     border-radius: 2.5rem;
     padding:  0.5rem 1rem 0.5rem 1rem;
+    width: 20rem;
+  }
+  .search-func form{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
   }
