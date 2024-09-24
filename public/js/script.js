@@ -17,7 +17,7 @@
     })
   })()
 
-  let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+  let taxSwitch = document.getElementById("tax-toogle");
   taxSwitch.addEventListener("click", () => {
     let taxInfo = document.getElementsByClassName("tax-info"); 
     for (let info of taxInfo) {
