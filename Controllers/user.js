@@ -9,7 +9,7 @@ module.exports.signUp_save = async (req, res, next) => {
         const { email, username, password } = req.body;
         const newUser = new User({ email, username });
         const registeredUser = await User.register(newUser, password);
-
+        console.log(registeredUser);
         req.login(registeredUser, (err) => {
             if (err) return next(err);
             req.flash("success", "Welcome to Wanderlust!");

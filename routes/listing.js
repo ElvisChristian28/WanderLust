@@ -9,7 +9,6 @@ const upload = multer({ storage });
 
 router.route("/")
     .get(wrapAsync(listingControllers.index))
-    .get(wrapAsync(listingControllers.indexCastles))
     .post(isLoggedin, upload.single('listing[image][url]'),validateListing, wrapAsync(listingControllers.new_save));
 
 router.get("/new", isLoggedin, wrapAsync(listingControllers.newPage));

@@ -47,17 +47,13 @@ const sessionOption = {
     resave : false,
     saveUninitialized : true,
     cookie : {
-        exprires : Date.now() + 7 * 24 * 60 * 60 * 1000,
+        exprires : Date.now() + 7 * 24 * 60 * 60 * 1000, // 7 DAYS 
         maxAge : 7 * 24 * 60 * 60 * 1000,
         httpOnly : true
     }
 };
 
-// app.get("/", (req, res) => {
-//     res.send("Working");
-// });
-
-app.use(session(sessionOption))
+app.use(session(sessionOption));
 app.use(flash());
 
 app.use(passport.initialize());
